@@ -16,7 +16,7 @@ body {
 }
 .todo-header{
     padding: 0.5em;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid rgb(215, 78, 233);
     text-align: center;
 }
 .todo-header h1{
@@ -25,30 +25,34 @@ body {
 .form-todo{
     padding: 1em;
     margin: 0 2em;
+    border-radius: 5%;
     border-bottom: 1px solid;
 }
 .form-todo h2,
 .list-todo{
     text-align: center;
     margin-top: 0;
+    border-bottom: 1px solid;
+
 }
 
 .form-control{
     display: flex;
     flex-direction: column;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
 }
 .form-control label{
     font-weight: bold;
-    font-size: .7em;
-    margin-bottom: .4em;
+    font-size: .9em;
+    margin-bottom: .8em;
 }
 
 .form-control input {
-    border: 1px solid #222;
-    background-color:#2c3035;
-    padding: .5em;
-    color:#dfdfdf ;
+    border: 2px dotted rgb(215, 78, 233);
+    background-color:#333941;
+    border-radius: 10px;
+    padding: .9em;
+    color:#e9dddd ;
 }
 
 input[type ="submit"]{
@@ -56,8 +60,13 @@ input[type ="submit"]{
     color: #eee;
     display: block;
     width: 100%;
-    border: 1px solid #222;
+    border: 1px solid rgb(236, 189, 236);
     border-radius: 5px;
-    padding: 1em;
+    padding: 1.5em;
     cursor: pointer;
+}
+
+input:hover{
+    transition: 0.2s;
+    background-color: rgb(106, 88, 243);
 }

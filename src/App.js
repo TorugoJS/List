@@ -20,7 +20,9 @@ function App() {
       done: false,
     };
 
-   await fetch (API + "/todos", {
+    console.log(todo);
+
+    await fetch(API + "/todos", {
       method: "POST",
       body: JSON.stringify(todo),
       headers: {
@@ -44,20 +46,32 @@ function App() {
           <form onSubmit={handleSubmit}>
 
             <div className='form-control'>
-              <label htmlFor='title'>O que você vai fazer?</label>
-              <input type="text" name="tiltle" placeholder='Título da tarefa'
+              <label htmlFor='title'>O que você quer fazer hoje?</label>
+
+              <input
+                type="text"
+                name="tiltle"
+                placeholder='Tarefa de hoje!!!'
                 onChange={(e) => setTitle(e.target.value)}
                 value={title || ""}
-                required />
+                required
+              />
+
             </div>
 
 
             <div className='form-control'>
               <label htmlFor='time'>Duração:</label>
-              <input type="text" name="time" placeholder='Tempo estimado (em horas)'
+
+              <input
+                type="number"
+                name="text"
+                placeholder='Tempo estimado (em horas)'
                 onChange={(e) => setTime(e.target.value)}
                 value={time || ""}
-                required />
+                required
+                 />
+
             </div>
 
             <input type="submit" value="Criar tarefa" />
@@ -65,9 +79,12 @@ function App() {
           </form>
 
         </div>
+
         <div className="list-todo">
+
           <h2>Lista de tarefas:</h2>
           {todos.length === 0 && <p>Não há tarefas!</p>}
+
         </div>
       </div>
     </div>
