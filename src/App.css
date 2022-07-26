@@ -10,13 +10,13 @@ body {
 .App {
     width: 40%;
     margin: 2em auto;
-    background-color:rgb(43, 129, 228);
+    background-color:#394049;
     border-radius: 5px;
     color: #fff;
-    /* border-bottom: 1px solid red; */
 }
 .todo-header{
     padding: 0.5em;
+    border-bottom: 1px solid red;
     text-align: center;
 }
 .todo-header h1{
