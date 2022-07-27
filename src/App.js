@@ -89,15 +89,15 @@ function App() {
   return (
     <div className="App">
       <div className='todo-header'>
-        <h1>React Todo</h1>
+        <h1>Lista de tarefas</h1>
 
         <div className="form-todo">
-          <h2>Insira sua próxima tarefa:</h2>
+          <h2>Qual a sua próxima tarefa?</h2>
 
           <form onSubmit={handleSubmit}>
 
             <div className='form-control'>
-              <label htmlFor='title'>O que você quer fazer hoje?</label>
+              <label htmlFor='title'>O que você vai fazer hoje?</label>
 
               <input
                 type="text"
@@ -115,7 +115,7 @@ function App() {
               <label htmlFor='time'>Duração:</label>
 
               <input
-                type="text"
+                type="number"
                 name="time"
                 placeholder='Tempo estimado (em horas)'
                 onChange={(e) => setTime(e.target.value)}

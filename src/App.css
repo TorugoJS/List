@@ -14,20 +14,23 @@ body {
     background-color:#394049;
     border-radius: 5px;
     color: #fff;
+    
 }
 .todo-header{
     padding: 0.5em;
     border-bottom: 1px solid rgb(215, 78, 233);
     text-align: center;
+    
 }
 .todo-header h1{
     margin: 0;
+    
 }
 .form-todo{
     padding: 1em;
     margin: 0 2em;
     border-radius: 5%;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #e221c8;
 }
 .form-todo h2,
 .list-todo{
@@ -49,11 +52,12 @@ body {
 }
 
 .form-control input {
-    border: 2px dotted rgb(215, 78, 233);
+    border: 2px dotted rgb(224, 15, 162);
     background-color:#333941;
     border-radius: 10px;
     padding: .9em;
     color:#e9dddd ;
+    font-size:15px;
 }
 
 input[type ="submit"]{
@@ -65,6 +69,7 @@ input[type ="submit"]{
     border-radius: 5px;
     padding: 1.5em;
     cursor: pointer;
+    
 }
 
 input:hover{
@@ -119,4 +124,36 @@ input:hover{
 
 .clear:hover{
     color: #f54b4b;
+}
+
+
+@media screen and (max-width: 500px){
+    .App{
+        margin-top: -1%;
+        width: 100%;
+        background-color:rgb(71, 130, 218);
+        
+    }
+    input:hover{
+        transition: 0.2s;
+        background-color: #66a9e9;
+    }
+}
+
+@media screen and (max-width: 1024px){
+
+    body{
+        background-color: rgb(68, 66, 66);
+    }
+    .App{
+        width: 100%;
+        margin-top: -1%;
+        
+        background-color:rgba(0, 1, 2, 0.74);
+        
+    }
+    input:hover{
+        transition: 0.2s;
+        background-color: #66a9e9;
+    }
 }
