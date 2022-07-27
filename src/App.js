@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react'
-import { BsTrash, BsbookmarkCheck, BsbookmarkCheckFill } from "react-icons/bs";
+import { BsTrash, BsBookmarkCheck, BsBookmarkCheckFill } from "react-icons/bs";
 
 const API = "http://localhost:5000";
 
@@ -56,6 +56,32 @@ function App() {
     setTime("");
   };
 
+  const handleDelete = async (id) => {
+
+    await fetch(API + "/todos" + id, {
+      method: "DELETE",
+    });
+
+    setTodos((prevState) => prevState.filter((todo) => todo.id !== id))
+  };
+
+  const handleEdit = async (todo) => {
+
+    todo.done = !todo.done;
+
+    const data = await fetch(API + "/todos" + todo.id, {
+      method: "PUT",
+      body: JSON.stringify(todo),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    setTodos((prevState) => prevState.map((t) => (t.id === data.id) ? (t = data) : t));
+  };
+
+  
+
   if (loading) {
     return <h1>Carregando...</h1>;
   }
@@ -89,8 +115,8 @@ function App() {
               <label htmlFor='time'>Duração:</label>
 
               <input
-                type="number"
-                name="text"
+                type="text"
+                name="time"
                 placeholder='Tempo estimado (em horas)'
                 onChange={(e) => setTime(e.target.value)}
                 value={time || ""}
@@ -111,9 +137,17 @@ function App() {
           {todos.length === 0 && <p>Não há tarefas!</p>}
           {todos.map((todo) => (
             <div className="todo" key={todo.id}>
-              <h3>{todo.title}</h3>
-              <p>Duração {todo.time}</p>
-              <div className="actions"></div>
+              <h3 className={todo.done ? "todo-done" : ""}>{todo.title}</h3>
+              <p>Duração: {todo.time} horas</p>
+              <div className="actions">
+                <span onClick={()=> handleEdit(todo)} className="check">
+
+                  {!todo.done ? <BsBookmarkCheck /> : <BsBookmarkCheckFill />}
+                </span>
+                <span className="clear">
+                  <BsTrash onClick={() => handleDelete(todo.id)} />
+                </span>
+              </div>
             </div>
           ))}
         </div>
